@@ -1,0 +1,1202 @@
+<!doctype html>
+<!-- saved from url=(0047)file:///C:/Users/lenovo/Desktop/Nagaf/menu.html -->
+<html lang="ar" dir="rtl">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Ahmed Abdelfattah - للتواصل: 01027119018">
+    <title>المنيو</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --red: #c0392b;
+        --dark-red: #922b21;
+        --gold: #f0a500;
+        --cream: #fdf6ec;
+        --dark: #1a0a00;
+        --text: #2c1810;
+        --card-bg: #fff;
+        --shadow: 0 4px 24px rgba(192, 57, 43, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Tajawal", sans-serif;
+        background: var(--cream);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark-red) 0%,
+          var(--red) 60%,
+          #e74c3c 100%
+        );
+        color: #fff;
+        text-align: center;
+        padding: 36px 20px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.03) 0,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 20px
+        );
+      }
+      header h1 {
+        font-size: 2.4rem;
+        font-weight: 900;
+        letter-spacing: 1px;
+        position: relative;
+      }
+      header p {
+        font-size: 1rem;
+        opacity: 0.85;
+        margin-top: 6px;
+        position: relative;
+      }
+
+      /* TABS */
+      .tabs-wrapper {
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .tabs-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 0;
+        min-width: max-content;
+        padding: 0 8px;
+      }
+
+      .tab-btn {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 14px 20px;
+        border: none;
+        background: transparent;
+        font-family: "Tajawal", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #888;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .tab-btn:hover {
+        color: var(--red);
+      }
+      .tab-btn.active {
+        color: var(--red);
+        border-bottom-color: var(--red);
+      }
+      .tab-btn .emoji {
+        font-size: 1.2rem;
+      }
+
+      /* SECTIONS */
+      .section {
+        display: none;
+        padding: 28px 16px 48px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .section.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: var(--dark-red);
+        margin-bottom: 22px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid var(--red);
+      }
+      .section-title .icon {
+        font-size: 1.8rem;
+      }
+
+      /* CARDS GRID */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 16px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        transition:
+          transform 0.18s,
+          box-shadow 0.18s;
+        border-right: 4px solid var(--red);
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(192, 57, 43, 0.15);
+      }
+      .card-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        flex: 1;
+      }
+      .card-sub {
+        font-size: 0.82rem;
+        color: #888;
+        margin-top: 3px;
+        font-weight: 400;
+      }
+      .price {
+        background: var(--red);
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        padding: 5px 11px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* Price range card */
+      .price-range {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+      }
+      .price-range .price-label {
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* MEAL SET */
+      .meal-set {
+        background: var(--card-bg);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        border-top: 4px solid var(--gold);
+      }
+      .meal-set-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--dark-red);
+        margin-bottom: 8px;
+      }
+      .meal-set-desc {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 10px;
+      }
+      .meal-set-price {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--dark);
+        font-weight: 800;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 5px 14px;
+      }
+
+      /* TABLE for accessories */
+      .acc-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        font-size: 0.88rem;
+      }
+      .acc-table th {
+        background: var(--red);
+        color: #fff;
+        padding: 10px 12px;
+        text-align: right;
+        font-weight: 700;
+      }
+      .acc-table td {
+        padding: 9px 12px;
+        border-bottom: 1px solid #f0e8e0;
+        color: var(--text);
+      }
+      .acc-table tr:last-child td {
+        border-bottom: none;
+      }
+      .acc-table tr:nth-child(even) td {
+        background: #fdf0e8;
+      }
+
+      /* sub-section */
+      .sub-section {
+        margin-bottom: 28px;
+      }
+      .sub-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--dark-red);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sub-title::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(to left, transparent, var(--red));
+        opacity: 0.3;
+      }
+
+      @media (max-width: 500px) {
+        header h1 {
+          font-size: 1.7rem;
+        }
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .section {
+          padding: 20px 10px 40px;
+        }
+      }
+      .order-now-btn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background-color: #27ae60;
+        color: white;
+        text-decoration: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition:
+          transform 0.3s ease,
+          background-color 0.3s ease;
+      }
+
+      .order-now-btn:hover {
+        background-color: #2ecc71;
+        transform: scale(1.05);
+      }
+
+      .phone-icon {
+        font-size: 1.4rem;
+        animation: shake 0.5s infinite;
+      }
+
+      @keyframes shake {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(10deg); }
+        50% { transform: rotate(0deg); }
+        75% { transform: rotate(-10deg); }
+        100% { transform: rotate(0deg); }
+      }
+
+      @media (min-width: 768px) {
+        .order-now-btn {
+          width: auto;
+          left: 30px;
+          right: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🍽️ المنيو</h1>
+      <p>اختار القسم اللي يعجبك من القايمة</p>
+      <p>📞 19971</p>
+    </header>
+
+    <div class="tabs-wrapper">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showSection('foul', this)">
+          <span class="emoji">🥔</span> فول نجف
+        </button>
+        <button class="tab-btn" onclick="showSection('taamiya', this)">
+          <span class="emoji">🧆</span> طعمية نجف
+        </button>
+        <button class="tab-btn" onclick="showSection('batato', this)">
+          <span class="emoji">🍟</span> بطاطس وأومليت
+        </button>
+        <button class="tab-btn" onclick="showSection('syrian', this)">
+          <span class="emoji">🥙</span> الركن السوري
+        </button>
+        <button class="tab-btn" onclick="showSection('mtnawa3', this)">
+          <span class="emoji">🥚</span> متنوع
+        </button>
+        <button class="tab-btn" onclick="showSection('mashawi', this)">
+          <span class="emoji">🥩</span> مشويات
+        </button>
+        <button class="tab-btn" onclick="showSection('futar', this)">
+          <span class="emoji">🍳</span> وجبات فطار
+        </button>
+        <button class="tab-btn" onclick="showSection('acc', this)">
+          <span class="emoji">🥗</span> المعلبات والسايب
+        </button>
+        <button class="tab-btn" onclick="showSection('grill', this)">
+          <span class="emoji">🍔</span> جريل وبرجر
+        </button>
+        <button class="tab-btn" onclick="showSection('hawawshi', this)">
+          <span class="emoji">🥪</span> حواوشي
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== فول نجف ===== -->
+    <div class="section active" id="foul">
+      <div class="section-title"><span class="icon">🥔</span> فول نجف</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-name">فول نجف (سلطة وطحينة)</div>
+          <div class="price">12 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول إسكندراني أو بالصلصة</div>
+          <div class="price">13 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول زيت ذرة أو زيت حار</div>
+          <div class="price">15 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بالبيض المقلي</div>
+          <div class="price">23 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بالبيض المسلوق</div>
+          <div class="price">21 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بالخلطة الحارة</div>
+          <div class="price">13 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بالطماطم المخلله</div>
+          <div class="price">15 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بالسجـــق</div>
+          <div class="price">22 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بزيت الزيتون</div>
+          <div class="price">18 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول على بابا غانوج أو باذنجان مقلي</div>
+          <div class="price">18 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">فول بالبسطرمة</div>
+          <div class="price">25 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">
+            فول باللمون المعصفر
+            <span style="background: #e74c3c; color: #fff; font-size: 0.7rem; border-radius: 4px; padding: 1px 5px;">جديد</span>
+          </div>
+          <div class="price">15 جنيه</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== طعمية نجف ===== -->
+    <div class="section" id="taamiya">
+      <div class="section-title"><span class="icon">🧆</span> طعمية نجف</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-name">طعمية نجف (سلطة وطحينة)</div>
+          <div class="price">12 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية محشية</div>
+          <div class="price">14 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية بالبيض المسلوق</div>
+          <div class="price">21 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية بالبيض المقلي</div>
+          <div class="price">23 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية على بابا غانوج / مسقعة / بالتنجان</div>
+          <div class="price">18 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية على صوابع أو شيبسي</div>
+          <div class="price">18 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">عجة بلدي</div>
+          <div class="price">20 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية بالطماطم المخلله</div>
+          <div class="price">15 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية محشيه بالطماطم المخلله</div>
+          <div class="price">17 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية على فول</div>
+          <div class="price">16 جنيه</div>
+        </div><div class="card">
+          <div class="card-name">طعمية بالجبنة والطماطم</div>
+          <div class="price">17 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية محشية بالجبنة الرومي</div>
+          <div class="price">20 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية محشيه بالبسطرمة</div>
+          <div class="price">25 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية محشية جبنة كيري عيش شامي</div>
+          <div class="price">23 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">طعمية محشية جبنة كيري عيش جامبو</div>
+          <div class="price">30 جنيه</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== بطاطس وأومليت ===== -->
+    <div class="section" id="batato">
+      <div class="section-title">
+        <span class="icon">🥔</span> بطاطس وأومليت
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title">بطاطس</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-name">بطاطس شيبسي / صوابع / مهروسه</div>
+            <div class="price">17 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس بالكاتشب</div>
+            <div class="price">18 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس بالكاتشب والمايونيز</div>
+            <div class="price">20 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بالمايونيز أو الثومية</div>
+            <div class="price">21 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بالجبنة الرومي</div>
+            <div class="price">25 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بالجبنة الشيدر</div>
+            <div class="price">25 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بعيش فرنساوي</div>
+            <div class="price">25 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس / مهروسه بالبيض المسلوق</div>
+            <div class="price">26 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس / مهروسه بالبيض المقلي</div>
+            <div class="price">28 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع على بابا غانوج أو باذنجان</div>
+            <div class="price">23 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بالجبنة والطماطم</div>
+            <div class="price">22 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بالسلطة الإسكندراني</div>
+            <div class="price">19 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بطاطس صوابع بالطماطم المخلله</div>
+            <div class="price">20 جنيه</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title">أومليت</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-name">بيض شكشوكة</div>
+            <div class="price">19 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض مسلوق</div>
+            <div class="price">14 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض مقلي</div>
+            <div class="price">16 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض بالبسطرمة عيش شامي</div>
+            <div class="price">25 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض بالبسطرمة عيش كايزر</div>
+            <div class="price">27 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض أومليت بالخضار</div>
+            <div class="price">18 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض أومليت بالجبنة الرومي</div>
+            <div class="price">24 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيض أومليت بالجبنة الشيدر</div>
+            <div class="price">24 جنيه</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== الركن السوري ===== -->
+    <div class="section" id="syrian">
+      <div class="section-title"><span class="icon">🥙</span> الركن السوري</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-name">ساندويتش شاورما لحمة</div>
+          <div class="price">75 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش شاورما فراخ</div>
+          <div class="price">75 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش فراخ بانيه</div>
+          <div class="price">75 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش شيش طاووق</div>
+          <div class="price">75 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش كفتة مشوية</div>
+          <div class="price">50 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش طعمية </div>
+          <div class="price">22 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش طعمية محشيه</div>
+          <div class="price">23 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش صوابع كاتشب أو سلطة</div>
+          <div class="price">25 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش صوابع كاتشب ومايونيز</div>
+          <div class="price">29 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش صوابع بالجبنة الرومي</div>
+          <div class="price">33 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش صوابع بالجبنة الشيدر</div>
+          <div class="price">36 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش صوابع صوص جبنة الشيدر</div>
+          <div class="price">33 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">ساندويتش صوابع ثومية / مايونيز</div>
+          <div class="price">29 جنيه</div>
+        </div>
+      </div>
+      <div style="background: #fff3cd; border-radius: 10px; padding: 10px 16px; margin-top: 16px; font-size: 0.87rem; color: #856404; font-weight: 600;">
+        📝 جميع الساندويتشات تقدم في عيش سوري
+      </div>
+    </div>
+
+    <!-- ===== متنوع ===== -->
+    <div class="section" id="mtnawa3">
+      <div class="section-title"><span class="icon">🥚</span> متنوع</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-name">جبنة بالطماطم</div>
+          <div class="price">15 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">باذنجان مقلي أو مسقعة</div>
+          <div class="price">17 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">بطاطس بانيه - عجة - فرنساوي</div>
+          <div class="price">19 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">بابا غانوج</div>
+          <div class="price">17 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">جبنة بالطماطم على بيض مسلوق</div>
+          <div class="price">24 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">جبنة رومي مقلية (عيش شامي)</div>
+          <div class="price">25 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">جبنة رومي مقلية (عيش فرنساوي 2 قطعة)</div>
+          <div class="price">40 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">صاروج نجف في عيش (فرنساوي)</div>
+          <div class="price">32 جنيه</div>
+        </div>
+      </div>
+
+      <div class="sub-section" style="margin-top: 24px">
+        <div class="sub-title">🥚 طاجن / أطباق</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-name">طاجن مكرونة باللحمة المفرومة</div>
+            <div class="price">40 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">طاجن أرز بسمتي بالشاورما اللحمة / فراخ</div>
+            <div class="price">85 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">طاجن أرز ابيض بالشاورما اللحمة / فراخ</div>
+            <div class="price">80 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">طاجن أرز بسمتي بالكبدة / السجق</div>
+            <div class="price">55 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">طاجن أرز أبيض بالكبدة / السجق</div>
+            <div class="price">50 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">طاجن أرز بسمتي</div>
+            <div class="price">25 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">طبق أرز ابيض</div>
+            <div class="price">15 جنيه</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== مشويات ===== -->
+    <div class="section" id="mashawi">
+      <div class="section-title"><span class="icon">🥩</span> مشويات</div>
+      <div class="cards-grid">
+        <div class="meal-set" style="grid-column: 1 / -1">
+          <div class="meal-set-title">وجبة التوفير</div>
+          <div class="meal-set-desc">ربع فرخة مشوية</div>
+          <span class="meal-set-price">صدر 95 | ورك 85 جنيه</span>
+        </div>
+        <div class="meal-set" style="grid-column: 1 / -1">
+          <div class="meal-set-title">وجبة المزاج</div>
+          <div class="meal-set-desc">ربع فرخة + مكرونة بشاميل</div>
+          <span class="meal-set-price">صدر 135 | ورك 125 جنيه</span>
+        </div>
+        <div class="card">
+          <div class="meal-set-title">وجبة الروقان</div>
+          <div class="card-name">نص فرخة مشوية على الفحم</div>
+          <div class="price">170 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">
+            <div>وجبة الطيبين</div>
+            <div class="card-sub">ربع كيلو كفتة مشوية</div>
+          </div>
+          <div class="price">100 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">
+            <div>وجبة الصحاب</div>
+            <div class="card-sub">نص كيلو كفتة مشوية</div>
+          </div>
+          <div class="price">200 جنيه</div>
+        </div>
+        <div class="card">
+          <div class="card-name">
+            <div>وجبة الهنا</div>
+            <div class="card-sub">3 قطع اسكريبس + أرز بسمتي</div>
+          </div>
+          <div class="price">110 جنيه</div>
+        </div>
+        <div class="card">
+          <div>وجبة الكرم</div>
+          <div class="card-name">فرخة مشوية على الفحم</div>
+          <div class="price">340 جنيه</div>
+        </div>
+        <div class="card">
+          <div>وجبة العائلة</div>
+          <div class="card-name">كيلو كفتة مشوية</div>
+          <div class="price">400 جنيه</div>
+        </div>
+      </div>
+      <div style="background: #fff8e1; border-radius: 10px; padding: 12px 16px; margin-top: 16px; font-size: 0.88rem; color: #7a5800; font-weight: 600;">
+        ⚡ إضافة أرز ابيض 15 جنيه  •  إضافة أرز بسمتي 25 جنيه
+      </div>
+
+      <div class="sub-section" style="margin-top: 24px">
+        <div class="sub-title">وجبة شيش طاووق</div>
+        <div class="meal-set">
+          <div class="meal-set-desc">
+            شيش طاووق + أرز بسمتي + ثومية + سلطة بلدي + طحينة + 1عيش
+          </div>
+          <span class="meal-set-price">   110 جنيه </span>
+        </div>
+      </div>
+      <div class="sub-section" style="margin-top: 24px">
+        <div class="sub-title">وجبة نجفاوي</div>
+        <div class="meal-set">
+          <div class="meal-set-desc">
+            <h2>ربع فرخة + سيخ كفته</h2>
+            أرز ابيض + سلطة + طحينة + عيش
+          </div>
+          <span class="meal-set-price">صدر 150 | ورك 140 | أرز بسمتي 160 | ورك 150 جنيه</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== وجبات فطار نجف ===== -->
+    <div class="section" id="futar">
+      <div class="section-title">
+        <span class="icon">🍳</span> وجبات فطار نجف
+      </div>
+      <div class="cards-grid">
+        <div class="meal-set">
+          <div class="meal-set-title">فطار الروقان</div>
+          <div class="meal-set-desc">
+            فول + 2 قرص طعمية + بطاطس، بيض مسلوق + 3 عيش شامي
+          </div>
+          <span class="meal-set-price">54 جنيه</span>
+        </div>
+        <div class="meal-set">
+          <div class="meal-set-title">فطار الهنا</div>
+          <div class="meal-set-desc">
+            فول + 2 قرص طعمية + بطاطس + 3 عيش شامي
+          </div>
+          <span class="meal-set-price">58 جنيه</span>
+        </div>
+        <div class="meal-set">
+          <div class="meal-set-title">فطار البيت</div>
+          <div class="meal-set-desc">
+            فول + 2 قرص طعمية + بطاطس ,بابا غانوج+ 3 عيش شامي
+          </div>
+          <span class="meal-set-price">60 جنيه</span>
+        </div>
+        <div class="meal-set">
+          <div class="meal-set-title">فطار المزاج</div>
+          <div class="meal-set-desc">
+            فول إسكندراني + 2 قرص طعمية , باطاطس+ 3 عيش + 3 مخلل + طحينة
+          </div>
+          <span class="meal-set-price">52 جنيه</span>
+        </div>
+        <div class="meal-set">
+          <div class="meal-set-title">فطار السعادة</div>
+          <div class="meal-set-desc">
+            فول + طعمية مخشية + بطاطس + مخلل + 3 عيش شامي
+          </div>
+          <span class="meal-set-price">50 جنيه</span>
+        </div>
+        <div class="meal-set">
+          <div class="meal-set-title">فطار الملوك</div>
+          <div class="meal-set-desc">
+            فول + طعمية كيري + بطاطس + مخلل+ 3 عيش شامي
+          </div>
+          <span class="meal-set-price">60 جنيه</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== المعلبات والسايب ===== -->
+    <div class="section" id="acc">
+      <div class="section-title">
+        <span class="icon">🥗</span> المعلبات والسايب
+      </div>
+      <p style="margin-bottom: 14px; font-size: 0.85rem; color: #888">
+        الأسعار: صغير / وسط / كبير
+      </p>
+      <table class="acc-table">
+        <thead>
+          <tr>
+            <th>الصنف</th>
+            <th>صغير</th>
+            <th>وسط</th>
+            <th>كبير</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>علبة فول سادة</td>
+            <td>13</td>
+            <td>20</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>علبة فول مجوج</td>
+            <td>16</td>
+            <td>25</td>
+            <td>32</td>
+          </tr>
+          <tr>
+            <td>علبة فول زيت ذرة أو إسكندراني</td>
+            <td>18</td>
+            <td>29</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td>علبة فول زيت حار / فول بالصلصة</td>
+            <td>18</td>
+            <td>29</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td>علبة فول زيت زيتون</td>
+            <td>20</td>
+            <td>32</td>
+            <td>39</td>
+          </tr>
+          <tr>
+            <td>علبة فول باللمون المعصفر</td>
+            <td>18</td>
+            <td>28</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td>علبة عجينة طعمية</td>
+            <td>—</td>
+            <td>18</td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <td>علبة بابا غانوج</td>
+            <td>16</td>
+            <td>22</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة جبنة بالطماطم</td>
+            <td>15</td>
+            <td>19</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة مهروسه</td>
+            <td>15</td>
+            <td>19</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة مسقعة</td>
+            <td>15</td>
+            <td>19</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة باذنجان مخلل أو مقلي</td>
+            <td>10</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة مخلل</td>
+            <td>7</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة طحينة</td>
+            <td>13</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة سلطة بلدي</td>
+            <td>5</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة خيار مخلل</td>
+            <td>7</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>علبة طماطم مخلل</td>
+            <td>7</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="sub-section" style="margin-top: 26px">
+        <div class="sub-title">سايب - خبز وقرص</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-name">كيس شيبسي</div>
+            <div class="price">18 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">باكيت بطاطس جديد</div>
+            <div class="price">18 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">بيضة مسلوقة سايبة</div>
+            <div class="price">9 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية</div>
+            <div class="price">4 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية كبير</div>
+            <div class="price">6 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية محشية بالخلطة</div>
+            <div class="price">6 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية محشية جبنة رومي</div>
+            <div class="price">11 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية محشية بسطرمة</div>
+            <div class="price">13 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية محشية جبنة كيري</div>
+            <div class="price">16 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص طعمية محشيه جبنة كيري بسطرمة</div>
+            <div class="price">21 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">قرص عجة بلدي</div>
+            <div class="price">15 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">2 عيش شامي (نجف المميز)</div>
+            <div class="price">5 جنيه</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== جريل وبرجر ===== -->
+    <div class="section" id="grill">
+      <div class="section-title"><span class="icon">🍔</span> جريل وبرجر</div>
+
+      <div class="sub-section">
+        <div class="sub-title">ساندويتش برجر كايزر</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-name">برجر كايزر سادة</div>
+            <div class="price">40 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">برجر كايزر بيض</div>
+            <div class="price">50 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">ساندويتش شاورما لحمة / فراخ</div>
+            <div class="price">45 - 60 - 80 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">ساندويتش كفتة جريل مشوي</div>
+            <div class="price">55 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">ساندويتش سوسيس</div>
+            <div class="price">45 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">ساندويتش كبده إسكندراني أو سجق</div>
+            <div class="price">50 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">ساندويتش تشيكن كرانشي</div>
+            <div class="price">80 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">ساندويتش شيش طاووق</div>
+            <div class="price">80 جنيه</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <div class="sub-title">برجر</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-name">برجر تيكساس فراخ</div>
+            <div class="price">85 جنيه</div>
+          </div>
+          <div class="card">
+            <div class="card-name">برجر تيكساس لحمة مشوي</div>
+            <div class="price">125 جنيه</div>
+          </div>
+        </div>
+        <div style="margin-top: 10px; font-size: 0.85rem; color: #888; background: #fff; border-radius: 8px; padding: 10px 14px;">
+          إضافة كومبو بطاطس + بيع كولا = 28 جنيه
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== حواوشي ===== -->
+    <div class="section" id="hawawshi">
+      <div class="section-title"><span class="icon">🥪</span> حواوشي</div>
+      <p style="margin-bottom: 14px; font-size: 0.85rem; color: #888">
+        الأسعار: بلدي / شامي
+      </p>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-name">حواوشي نجف</div>
+          <div class="price-range price">
+            <span>35 / 40 </span>
+            <span class="price-label">جنيه</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-name">حواوشي بالجبنة الرومي</div>
+          <div class="price-range price">
+            <span>43 / 48 </span>
+            <span class="price-label">جنيه</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-name">حواوشي بالجبنة الشيدر</div>
+          <div class="price-range price">
+            <span>43 / 48 </span>
+            <span class="price-label">جنيه</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-name">حواوشي بقطعة الجبنة الشيدر</div>
+          <div class="price-range price">
+            <span>46 / 51 </span>
+            <span class="price-label">جنيه</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-name">حواوشي لحمة على سجق</div>
+          <div class="price-range price">
+            <span>45 / 50 </span>
+            <span class="price-label">جنيه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- زر الاتصال السريع -->
+    <a href="tel:19971" class="order-now-btn">
+      <span class="phone-icon">📞</span>
+      اطلب الآن: 19971
+    </a>
+
+    <script>
+      function showSection(id, btn) {
+        document.querySelectorAll(".section").forEach((s) => s.classList.remove("active"));
+        document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        btn.classList.add("active");
+        btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }
+    </script>
+    <footer style="text-align:center; padding:20px; font-size:0.9rem; color:#777; background:#fff; margin-top:30px; border-top:2px solid #eee;">
+  © 2026 منيو مطعم نجف | تصميم وبرمجة 
+  <strong>Ahmed Abdelfattah</strong>  
+  | 📞 01027119018
+</footer>
+  </body>
+</html>
